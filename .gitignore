@@ -1,0 +1,7 @@
+# Standard ignore files #
+/.settings
+.classpath
+.project
+
+/target
+
