@@ -6,5 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2019-10-19
-Initial release.
+## [1.1.0] - 2019-10-18
+### Changed
+- Formatted .java and .xml files
+- Create global constants for decimals to share accross service classes
+
+## [1.0.0] - 2019-10-18
+### Added
+- Initial release.
