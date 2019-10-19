@@ -7,6 +7,12 @@ package org.md.finance.organizer.models;
  */
 public class SavingAccount extends AbstractAccount {
 
+	public SavingAccount() {
+		this.name = "";
+		this.balance = 0.0;
+		this.interest = 0.0;
+	}
+
 	/**
 	 * Constructor, sets all class variables
 	 *

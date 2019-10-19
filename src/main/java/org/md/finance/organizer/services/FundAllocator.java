@@ -215,9 +215,6 @@ public class FundAllocator {
 		return min;
 	}
 
-	/**
-	 *
-	 */
 	private void resetPaymentVariables() {
 		totalInterest = 0.0;
 		minMonthly = totalMinimumPayment();
@@ -302,6 +299,7 @@ public class FundAllocator {
 		return s;
 		
 	}
+
 	/**
 	 * Creates the base of an array list that will store a budget plan for each
 	 * account on the allocator. Starts each String as the accounts overview.
