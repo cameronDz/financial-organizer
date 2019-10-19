@@ -1,6 +1,5 @@
 package org.md.finance.organizer.services;
 
-import org.md.finance.organizer.constants.FinancialConstant;
 import org.md.finance.organizer.constants.FormatConstant;
 
 public class FinancialStringFormatterService {
@@ -20,10 +19,10 @@ public class FinancialStringFormatterService {
 	 */
 	public String formatStringDouble(String accountName, Double balance, Double interestRate, Double interest, Double monthlyPayment) {
 		return formatString(accountName, 
-				FinancialConstant.DOLLAR.format(balance),
-				FinancialConstant.PERCENT.format(interestRate / 100),
-				FinancialConstant.DOLLAR.format(interest),
-				FinancialConstant.DOLLAR.format(monthlyPayment));
+				FormatConstant.DOLLAR_DECIMAL.format(balance),
+				FormatConstant.PERCENT_DECIMAL.format(interestRate / 100),
+				FormatConstant.DOLLAR_DECIMAL.format(interest),
+				FormatConstant.DOLLAR_DECIMAL.format(monthlyPayment));
 	}
 
 	/**
@@ -37,10 +36,10 @@ public class FinancialStringFormatterService {
 	 */
 	public String formatMonthlyString(Double balance, Double interest, Double payment, Double newBalance) {
 		return formatString(FormatConstant.EMPTY_STRING,
-				FinancialConstant.DOLLAR.format(balance),
-				FinancialConstant.DOLLAR.format(interest),
-				FinancialConstant.DOLLAR.format(payment),
-				FinancialConstant.DOLLAR.format(newBalance));
+				FormatConstant.DOLLAR_DECIMAL.format(balance),
+				FormatConstant.DOLLAR_DECIMAL.format(interest),
+				FormatConstant.DOLLAR_DECIMAL.format(payment),
+				FormatConstant.DOLLAR_DECIMAL.format(newBalance));
 	}
 
 	/**
@@ -76,7 +75,7 @@ public class FinancialStringFormatterService {
 			year += interest;
 		}
 		sb.append("Yearly Interest: ");
-		sb.append(FinancialConstant.DOLLAR.format(year));
+		sb.append(FormatConstant.DOLLAR_DECIMAL.format(year));
 		sb.append("\n");
 		return sb.toString();
 	}

@@ -3,7 +3,7 @@ package org.md.finance.organizer.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.md.finance.organizer.constants.FinancialConstant;
+import org.md.finance.organizer.constants.FormatConstant;
 import org.md.finance.organizer.models.CreditAccount;
 import org.md.finance.organizer.models.SavingAccount;
 
@@ -189,8 +189,8 @@ public class FundAllocator {
 	 */
 	private String accountTransaction(String type, double amountD, double balanceD) {
 		String empty = "";
-		String amountS = FinancialConstant.DOLLAR.format(amountD);
-		String balanceS = FinancialConstant.DOLLAR.format(balanceD);
+		String amountS = FormatConstant.DOLLAR_DECIMAL.format(amountD);
+		String balanceS = FormatConstant.DOLLAR_DECIMAL.format(balanceD);
 		return String.format("%5s %-41s %15s %15s", empty, type, amountS, balanceS);
 	}
 
@@ -293,11 +293,10 @@ public class FundAllocator {
 		}
 
 		// show total interst yielded
-		s += "Total interest: " + FinancialConstant.DOLLAR.format(totalInterest) + "\n";
-		s += "Total debt: " + FinancialConstant.DOLLAR.format(totalDebt) + "\n";
+		s += "Total interest: " + FormatConstant.DOLLAR_DECIMAL.format(totalInterest) + "\n";
+		s += "Total debt: " + FormatConstant.DOLLAR_DECIMAL.format(totalDebt) + "\n";
 
 		return s;
-		
 	}
 
 	/**

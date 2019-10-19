@@ -1,6 +1,6 @@
 package org.md.finance.organizer;
 
-import org.md.finance.organizer.constants.FinancialConstant;
+import org.md.finance.organizer.constants.FormatConstant;
 import org.md.finance.organizer.models.UserFinancialDetailsModel;
 import org.md.finance.organizer.services.FinancialStringFormatterService;
 import org.md.finance.organizer.services.MockInputService;
@@ -41,7 +41,7 @@ public class App {
 		}
 
 		sb.append("Funds: ");
-		sb.append(FinancialConstant.DOLLAR.format(userFinancialDetails.getFunds()));
+		sb.append(FormatConstant.DOLLAR_DECIMAL.format(userFinancialDetails.getFunds()));
 		sb.append("\n");
 		System.out.println(sb.toString());
 
