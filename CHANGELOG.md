@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### [1.2.0] - 2019-10-19
+## [1.2.0] - 2019-10-19
 ### Added
 - Constants package with Strings used accross application
 - Services for financial statement generation, getting command line user input, and mocking user input
