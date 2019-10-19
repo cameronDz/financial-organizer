@@ -1,6 +1,6 @@
 package org.md.finance.organizer.services;
 
-import java.text.DecimalFormat;
+import org.md.finance.organizer.constants.FinancialConstant;
 
 /**
  * Compares 2 pre set accounts and determines how to allocate funds on a monthly
@@ -10,7 +10,6 @@ import java.text.DecimalFormat;
  */
 public class BillComparator {
 
-	protected final static DecimalFormat DOLLAR = new DecimalFormat("$#,###,###.00");
 
 	// account variables
 	protected static String[] act = new String[2];
@@ -49,7 +48,7 @@ public class BillComparator {
 			}
 
 			// print out total interest amount
-			System.out.print(act[j] + " - Total Interest: " + DOLLAR.format(total) + "\n");
+			System.out.print(act[j] + " - Total Interest: " + FinancialConstant.DOLLAR.format(total) + "\n");
 		}
 
 		// reset fake test accounts
@@ -73,7 +72,7 @@ public class BillComparator {
 			}
 
 			// print out total interest amount
-			System.out.print(act[j] + " - Total Interest: " + DOLLAR.format(total) + "\n");
+			System.out.print(act[j] + " - Total Interest: " + FinancialConstant.DOLLAR.format(total) + "\n");
 		}
 
 		// reset fake test accounts
@@ -143,15 +142,15 @@ public class BillComparator {
 			}
 
 			// print out monthly account status
-			System.out.print(act[0] + " " + DOLLAR.format(balance[0]) + "\n");
-			System.out.print(act[1] + " " + DOLLAR.format(balance[1]) + "\n");
+			System.out.print(act[0] + " " + FinancialConstant.DOLLAR.format(balance[0]) + "\n");
+			System.out.print(act[1] + " " + FinancialConstant.DOLLAR.format(balance[1]) + "\n");
 
 		}
 		// print out two account balances and total interest - optimized
 		for (int j = 0; j <= 1; j++) {
-			System.out.print(act[j] + " " + DOLLAR.format(balance[j]) + "\n");
+			System.out.print(act[j] + " " + FinancialConstant.DOLLAR.format(balance[j]) + "\n");
 		}
-		System.out.print("Total interest accrued: " + DOLLAR.format(optTotal) + "\n");
+		System.out.print("Total interest accrued: " + FinancialConstant.DOLLAR.format(optTotal) + "\n");
 
 	}
 
@@ -193,10 +192,10 @@ public class BillComparator {
 	 */
 	public static String formatInterest(double b, double i, double m) {
 		String empty = "";
-		String sum = DOLLAR.format(b);
-		String interest = DOLLAR.format(i);
-		String month = DOLLAR.format(m);
-		String remain = DOLLAR.format(b + i - m);
+		String sum = FinancialConstant.DOLLAR.format(b);
+		String interest = FinancialConstant.DOLLAR.format(i);
+		String month = FinancialConstant.DOLLAR.format(m);
+		String remain = FinancialConstant.DOLLAR.format(b + i - m);
 
 		return String.format("%5s %12s %12s %12s %12s", empty, sum, interest, month, remain);
 	}

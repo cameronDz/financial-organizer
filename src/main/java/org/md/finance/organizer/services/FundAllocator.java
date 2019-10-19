@@ -1,9 +1,9 @@
 package org.md.finance.organizer.services;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.md.finance.organizer.constants.FinancialConstant;
 import org.md.finance.organizer.models.CreditAccount;
 import org.md.finance.organizer.models.SavingAccount;
 
@@ -14,7 +14,6 @@ import org.md.finance.organizer.models.SavingAccount;
  */
 public class FundAllocator {
 
-	protected final static DecimalFormat DOLLAR = new DecimalFormat("$#,###,###.00");
 	protected List<CreditAccount> accounts;
 	protected SavingAccount savings;
 	protected double funds;
@@ -190,8 +189,8 @@ public class FundAllocator {
 	 */
 	private String accountTransaction(String type, double amountD, double balanceD) {
 		String empty = "";
-		String amountS = DOLLAR.format(amountD);
-		String balanceS = DOLLAR.format(balanceD);
+		String amountS = FinancialConstant.DOLLAR.format(amountD);
+		String balanceS = FinancialConstant.DOLLAR.format(balanceD);
 		return String.format("%5s %-41s %15s %15s", empty, type, amountS, balanceS);
 	}
 
@@ -297,12 +296,12 @@ public class FundAllocator {
 		}
 
 		// show total interst yielded
-		s += "Total interest: " + DOLLAR.format(totalInterest) + "\n";
-		s += "Total debt: " + DOLLAR.format(totalDebt) + "\n";
+		s += "Total interest: " + FinancialConstant.DOLLAR.format(totalInterest) + "\n";
+		s += "Total debt: " + FinancialConstant.DOLLAR.format(totalDebt) + "\n";
 
 		return s;
+		
 	}
-
 	/**
 	 * Creates the base of an array list that will store a budget plan for each
 	 * account on the allocator. Starts each String as the accounts overview.

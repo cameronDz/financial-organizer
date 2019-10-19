@@ -1,9 +1,10 @@
 package org.md.finance.organizer.services;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import org.md.finance.organizer.constants.FinancialConstant;
 
 /**
  * Used to get several user account balances, and determine how to prioritize
@@ -13,10 +14,6 @@ import java.util.Scanner;
  * @author Cameron
  */
 public class BillPriortizer {
-
-	// creates dollar and decimal formats for output
-	protected final static DecimalFormat DOLLAR = new DecimalFormat("$#,###,###.00");
-	protected final static DecimalFormat PERCENT = new DecimalFormat("##.000%");
 
 	protected static List<String> accounts;
 	protected static List<Double> balances, rates, interests, monthly;
@@ -51,7 +48,7 @@ public class BillPriortizer {
 			System.out.print(s + "\n");
 			yearlyInterest(balances.get(i), rates.get(i), monthly.get(i));
 		}
-		System.out.print("Funds: " + DOLLAR.format(funds) + "\n");
+		System.out.print("Funds: " + FinancialConstant.DOLLAR.format(funds) + "\n");
 
 		// TODO add calculation for continuous compound interest
 
@@ -154,13 +151,13 @@ public class BillPriortizer {
 	public static String formatStringDouble(String a, double b, double r, double i, double m) {
 
 		// format doubles
-		String balance = "-" + DOLLAR.format(b);
+		String balance = "-" + FinancialConstant.DOLLAR.format(b);
 		balance = new StringBuilder(balance).insert(balance.length() - 2, "").toString();
-		String rate = PERCENT.format(r / 100);
+		String rate = FinancialConstant.PERCENT.format(r / 100);
 		rate = new StringBuilder(rate).insert(rate.length() - 2, "").toString();
-		String interest = DOLLAR.format(i);
+		String interest = FinancialConstant.DOLLAR.format(i);
 		interest = new StringBuilder(interest).insert(interest.length() - 2, "").toString();
-		String month = DOLLAR.format(m);
+		String month = FinancialConstant.DOLLAR.format(m);
 		month = new StringBuilder(month).insert(month.length() - 2, "").toString();
 
 		// calls formatString for Strings only
@@ -181,13 +178,13 @@ public class BillPriortizer {
 		// empty String
 		String empty = "";
 		// format doubles
-		String balance = "-" + DOLLAR.format(b);
+		String balance = "-" + FinancialConstant.DOLLAR.format(b);
 		balance = new StringBuilder(balance).insert(balance.length() - 2, "").toString();
-		String interest = DOLLAR.format(i);
+		String interest = FinancialConstant.DOLLAR.format(i);
 		interest = new StringBuilder(interest).insert(interest.length() - 2, "").toString();
-		String payment = DOLLAR.format(p);
+		String payment = FinancialConstant.DOLLAR.format(p);
 		payment = new StringBuilder(payment).insert(payment.length() - 2, "").toString();
-		String newBalance = DOLLAR.format(n);
+		String newBalance = FinancialConstant.DOLLAR.format(n);
 		newBalance = new StringBuilder(newBalance).insert(newBalance.length() - 2, "").toString();
 
 		return formatString(empty, balance, interest, payment, newBalance);
@@ -239,6 +236,6 @@ public class BillPriortizer {
 			b = newBal;
 			year += interest;
 		}
-		System.out.print("Yearly Interest: " + DOLLAR.format(year) + "\n");
+		System.out.print("Yearly Interest: " + FinancialConstant.DOLLAR.format(year) + "\n");
 	}
 }
