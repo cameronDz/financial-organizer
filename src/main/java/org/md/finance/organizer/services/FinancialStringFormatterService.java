@@ -44,6 +44,44 @@ public class FinancialStringFormatterService {
 	}
 
 	/**
+	 * Figure out and print yearly account balance after minimum monthly payments
+	 *
+	 * @param balance account balance
+	 * @param rate account interest rate
+	 * @param minimumPayment account minimum monthly payment
+	 */
+	public String yearlyInterest(Double balance, Double rate, Double minimumPayment) {
+		StringBuilder sb = new StringBuilder();
+		Double year = 0.0;
+		// cycle throught 12 months of interest accumulation and minimum
+		// monthly payments. cycle ends if balance reaches 0
+		for (int i = 0; i < 12; i++) {
+			// calculate interest
+			Double interest = balance * (rate / 12 * .01);
+			Double newBal = balance;
+			balance += interest;
+			if (balance <= minimumPayment) {
+				newBal = 0.0;
+				i = 12;
+			} else {
+				newBal = balance - minimumPayment;
+			}
+
+			// print out balance
+			sb.append(formatMonthlyString(balance, interest, minimumPayment, newBal));
+			sb.append("\n");
+
+			// set b to new balance
+			balance = newBal;
+			year += interest;
+		}
+		sb.append("Yearly Interest: ");
+		sb.append(FinancialConstant.DOLLAR.format(year));
+		sb.append("\n");
+		return sb.toString();
+	}
+
+	/**
 	 * Creates an output strong to be returned to user with account information
 	 *
 	 * @param name String account name
