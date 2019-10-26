@@ -1,5 +1,6 @@
 package org.md.finance.organizer;
 
+import org.md.finance.organizer.constants.FinancialConstant;
 import org.md.finance.organizer.constants.FormatConstant;
 import org.md.finance.organizer.models.UserFinancialDetailsModel;
 import org.md.finance.organizer.services.FinancialStringFormatterService;
@@ -18,31 +19,38 @@ public class App {
 
 		// print out user input back to them
 		StringBuilder sb = new StringBuilder()
-				.append("\n\n")
-				.append("=======================")
-				.append("Account information")
-				.append("========================")
-				.append("\n")
-				.append(financialStringFormatter.formatString("Account name", "Balance", "Rate", "Yr. Int", "Min. Pay"))
-				.append("\n");
+				.append(FormatConstant.NEW_LINE)
+				.append(FormatConstant.NEW_LINE)
+				.append(FinancialConstant.ACCOUNT_INFORMATION)
+				.append(FormatConstant.NEW_LINE)
+				.append(financialStringFormatter.formatString(
+						FinancialConstant.ACCOUNT_NAME,
+						FinancialConstant.BALANCE,
+						FinancialConstant.RATE,
+						FinancialConstant.ABBR_YEARLY_INTEREST,
+						FinancialConstant.ABBR_MINIMUM_PAYMENT))
+				.append(FormatConstant.NEW_LINE);
+
 		// loops through accounts index
 		for (int i = 0; i < userFinancialDetails.getAccounts().size(); i++) {
-			sb.append(financialStringFormatter.formatStringDouble(
+			String financialInfo = financialStringFormatter.formatStringDouble(
 					userFinancialDetails.getAccounts().get(i),
 					userFinancialDetails.getBalances().get(i),
 					userFinancialDetails.getRates().get(i),
 					userFinancialDetails.getInterests().get(i),
-					userFinancialDetails.getMonthly().get(i)));
-			sb.append("\n");
-			sb.append(financialStringFormatter.yearlyInterest(
+					userFinancialDetails.getMonthly().get(i));
+			String yearlyInterest = financialStringFormatter.yearlyInterest(
 					userFinancialDetails.getBalances().get(i),
 					userFinancialDetails.getRates().get(i),
-					userFinancialDetails.getMonthly().get(i)));
+					userFinancialDetails.getMonthly().get(i));
+			sb.append(financialInfo)
+					.append(FormatConstant.NEW_LINE)
+					.append(yearlyInterest);
 		}
 
-		sb.append("Funds: ");
-		sb.append(FormatConstant.DOLLAR_DECIMAL.format(userFinancialDetails.getFunds()));
-		sb.append("\n");
+		sb.append(FinancialConstant.FUNDS)
+				.append(FormatConstant.DOLLAR_DECIMAL.format(userFinancialDetails.getFunds()))
+				.append(FormatConstant.NEW_LINE);
 		System.out.println(sb.toString());
 
 		// TODO add calculation for continuous compound interest
