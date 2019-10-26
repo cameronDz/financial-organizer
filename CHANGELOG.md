@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2019-10-19
+### Added
+- Loaded constructor for SavingAccount class
+- An Account model class for allocation service
+
+### Changed
+- Moved Financial Constant variables to Formatter Constants and updated classes where used
+
 ## [1.2.0] - 2019-10-19
 ### Added
 - Constants package with Strings used accross application
