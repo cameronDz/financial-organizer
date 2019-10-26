@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2019-10-26
+### Removed
+- Legacy class that was remade as service
+
 ## [2.0.0] - 2019-10-19
 ### Added
 - Loaded constructor for SavingAccount class
