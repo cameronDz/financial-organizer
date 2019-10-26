@@ -14,10 +14,7 @@ import org.md.finance.organizer.services.FundAllocator;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
+
     public void shouldAnswerWithTrue()
     {
         
