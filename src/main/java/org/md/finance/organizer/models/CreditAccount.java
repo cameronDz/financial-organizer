@@ -43,14 +43,18 @@ public class CreditAccount extends AbstractAccount {
 	 * @param d payment amount to be credited to account
 	 * @return excess amount of funds if account
 	 */
-	public double makePayment(double d) {
-		if (d > Math.abs(this.balance)) {
-			d += this.balance;
-			this.balance = 0.0;
-			return d;
+	public double makePayment(Double d) {
+		double ret = 0.0;
+		if (d != null) {
+			if (d > Math.abs(this.balance)) {
+				d += this.balance;
+				this.balance = 0.0;
+				ret = d;
+			} else {
+				this.balance += d;
+			}
 		}
-		this.balance += d;
-		return 0.0;
+		return ret;
 	}
 
 	/**
