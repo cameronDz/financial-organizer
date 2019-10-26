@@ -1,4 +1,4 @@
-package org.md.finance.organizer;
+package org.md.finance.organizer.services;
 
 import static org.junit.Assert.assertTrue;
 
@@ -12,7 +12,7 @@ import org.md.finance.organizer.services.FundAllocator;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class FundAllocatorTest {
 
 	@Test
 	public void test() {
